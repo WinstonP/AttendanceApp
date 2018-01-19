@@ -20,11 +20,17 @@ public class Main {
             if(temp==0){
                 perfAttendanceCount++;
             }
+
         }
 
 
         System.out.println("The elements are " + absences);
         System.out.println(perfAttendanceCount + " student(s) had perfect attendance");
+        System.out.println(calcAverageAbsence(absences));
 
+    }
+     public static int calcAverageAbsence (ArrayList<Integer> arr){
+        int avgAbs = 0;
+        return avgAbs;
     }
 }
