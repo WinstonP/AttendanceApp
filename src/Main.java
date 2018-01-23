@@ -21,15 +21,14 @@ public class Main {
 
 
     }
+
     public static void sortAttendanceRecord(ArrayList<Integer> arr){
         System.out.println("pre-sorted attendance list" + arr);
           Collections.sort(arr);
         System.out.println("post-sorted attendance list " + arr);
 
     }
-    public static ArrayList<Integer> countCertainAbsences(ArrayList<Integer> arr ){
-        System.out.println("Students with how many absences are you looking for?");
-        int certainAbsences = keyb.nextInt();
+    public static ArrayList<Integer> countCertainAbsences(ArrayList<Integer> arr ,int  certainAbsences ){
         ArrayList<Integer> certainAbs = new ArrayList<Integer>();
         for (int i = 0; i < arr.size(); i++) {
             if(arr.get(i)==certainAbsences){
