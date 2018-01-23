@@ -17,14 +17,14 @@ public class Main {
         System.out.printf("The average absent rate is: %.2f \n" , calcAverageAbsence(attendanceRecord));
 
         System.out.println("Here are the indices of the students with certain number of absences: " + countCertainAbsences(attendanceRecord));
-
+        sortAttendanceRecord(attendanceRecord);
 
 
     }
     public static void sortAttendanceRecord(ArrayList<Integer> arr){
-        System.out.println(arr);
+        System.out.println("pre-sorted attendance list" + arr);
           Collections.sort(arr);
-        System.out.println(arr);
+        System.out.println("post-sorted attendance list " + arr);
 
     }
     public static ArrayList<Integer> countCertainAbsences(ArrayList<Integer> arr ){
