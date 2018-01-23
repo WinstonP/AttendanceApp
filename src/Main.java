@@ -25,7 +25,15 @@ public class Main {
     public  static ArrayList<Integer> absenceAdder(ArrayList<Integer> arr,int absentmin,int absentsadded){
         for (int i=0; i<arr.size();i++) {
             if(arr.get(i)>=absentmin){
-                arr.set(i,arr.get(i)+absentsadded);
+               if(arr.get(i)+absentsadded>15){
+                   arr.set(i,15);
+               }
+               else if(arr.get(i)+absentsadded<0){
+                   arr.set(i,0);
+               }
+               else if((arr.get(i)+absentsadded>=0) && arr.get(i)+absentsadded<=15){
+                   arr.set(i,arr.get(i)+absentsadded);
+               }
             }
         }
         return arr;
