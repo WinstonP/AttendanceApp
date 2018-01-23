@@ -1,6 +1,7 @@
 import com.sun.org.apache.bcel.internal.generic.NEW;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -11,11 +12,19 @@ public class Main {
 
 
         ArrayList<Integer> attendanceRecord = calcAbsences(welcomeInput());
+        System.out.println("Attendance Record: " + attendanceRecord);
         System.out.println("This many student(s) had perfect Attendance: " + calcPerfAttendance(attendanceRecord));
-        System.out.println("The average absent rate is: " + calcAverageAbsence(attendanceRecord));
+        System.out.printf("The average absent rate is: %.2f \n" , calcAverageAbsence(attendanceRecord));
 
         System.out.println("Here are the indices of the students with certain number of absences: " + countCertainAbsences(attendanceRecord));
 
+
+
+    }
+    public static void sortAttendanceRecord(ArrayList<Integer> arr){
+        System.out.println(arr);
+          Collections.sort(arr);
+        System.out.println(arr);
 
     }
     public static ArrayList<Integer> countCertainAbsences(ArrayList<Integer> arr ){
@@ -60,9 +69,8 @@ public class Main {
         return perfAttendanceCount;
     }
 
-    public static int calcAverageAbsence(ArrayList<Integer> arr) {
-        int avgAbs = 0;
-        int absTotal = 0;
+    public static double calcAverageAbsence(ArrayList<Integer> arr) {
+        double  absTotal = 0;
         for (int elem : arr) {
             absTotal += elem;
         }
