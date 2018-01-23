@@ -1,9 +1,6 @@
 import com.sun.org.apache.bcel.internal.generic.NEW;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     final static Scanner keyb = new Scanner(System.in);
@@ -20,6 +17,16 @@ public class Main {
         Collections.sort(attendanceRecord);
         absenceAdder(attendanceRecord,5,2);
 
+
+    }
+    public static HashSet<Integer> uniqueAbsenceRecords(ArrayList<Integer> arr){
+        HashSet<Integer>uniqueRecord = new HashSet<Integer>();
+        for (int elem:arr) {
+            if(!uniqueRecord.contains(elem)){
+               uniqueRecord.add(elem);
+            }
+        }
+        return uniqueRecord;
     }
 
     public  static ArrayList<Integer> absenceAdder(ArrayList<Integer> arr,int absentmin,int absentsadded){
