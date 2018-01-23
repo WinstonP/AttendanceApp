@@ -18,11 +18,19 @@ public class Main {
 
         System.out.println("Here are the indices of the students with certain number of absences: " + countCertainAbsences(attendanceRecord,5));
         Collections.sort(attendanceRecord);
-
+        absenceAdder(attendanceRecord,5,2);
 
     }
 
+    public  static ArrayList<Integer> absenceAdder(ArrayList<Integer> arr,int absentmin,int absentsadded){
+        for (int i=0; i<arr.size();i++) {
+            if(arr.get(i)>=absentmin){
+                arr.set(i,arr.get(i)+absentsadded);
+            }
+        }
+        return arr;
 
+    }
     public static ArrayList<Integer> countCertainAbsences(ArrayList<Integer> arr ,int  certainAbsences ){
         ArrayList<Integer> certainAbs = new ArrayList<Integer>();
         for (int i = 0; i < arr.size(); i++) {
