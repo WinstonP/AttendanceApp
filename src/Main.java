@@ -16,18 +16,13 @@ public class Main {
         System.out.println("This many student(s) had perfect Attendance: " + calcPerfAttendance(attendanceRecord));
         System.out.printf("The average absent rate is: %.2f \n" , calcAverageAbsence(attendanceRecord));
 
-        System.out.println("Here are the indices of the students with certain number of absences: " + countCertainAbsences(attendanceRecord));
-        sortAttendanceRecord(attendanceRecord);
+        System.out.println("Here are the indices of the students with certain number of absences: " + countCertainAbsences(attendanceRecord,5));
+        Collections.sort(attendanceRecord);
 
 
     }
 
-    public static void sortAttendanceRecord(ArrayList<Integer> arr){
-        System.out.println("pre-sorted attendance list" + arr);
-          Collections.sort(arr);
-        System.out.println("post-sorted attendance list " + arr);
 
-    }
     public static ArrayList<Integer> countCertainAbsences(ArrayList<Integer> arr ,int  certainAbsences ){
         ArrayList<Integer> certainAbs = new ArrayList<Integer>();
         for (int i = 0; i < arr.size(); i++) {
