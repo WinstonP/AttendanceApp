@@ -16,8 +16,22 @@ public class Main {
         System.out.println("Here are the indices of the students with certain number of absences: " + countCertainAbsences(attendanceRecord,5));
         Collections.sort(attendanceRecord);
         absenceAdder(attendanceRecord,5,2);
+        uniqueAbsenceRecords(attendanceRecord);
 
 
+    }
+    public static HashMap<Integer,Integer> absenceHistogramgenerator(ArrayList<Integer> arr){
+        HashMap<Integer,Integer>attHist  = new HashMap<Integer, Integer>();
+        for (int i = 0; i < arr.size(); i++) {
+            if(attHist.containsKey(arr.get(i))){
+               attHist.put(arr.get(i),attHist.get(arr.get(i))+1);
+            }
+            else{
+                attHist.put(arr.get(i),1);
+            }
+
+        }
+        return attHist;
     }
     public static HashSet<Integer> uniqueAbsenceRecords(ArrayList<Integer> arr){
         HashSet<Integer>uniqueRecord = new HashSet<Integer>();
