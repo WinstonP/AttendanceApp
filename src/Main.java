@@ -15,7 +15,7 @@ public class Main {
 
         System.out.println("Here are the indices of the students with certain number of absences: " + countCertainAbsences(attendanceRecord,5));
         Collections.sort(attendanceRecord);
-        absenceAdder(attendanceRecord,5,2);
+        attendanceRecord = absenceAdder(attendanceRecord,5,2);
         uniqueAbsenceRecords(attendanceRecord);
 
 
@@ -44,15 +44,17 @@ public class Main {
     }
 
     public  static ArrayList<Integer> absenceAdder(ArrayList<Integer> arr,int absentmin,int absentsadded){
+        int maxAbsences = 15;
+        int minAbsences = 0;
         for (int i=0; i<arr.size();i++) {
             if(arr.get(i)>=absentmin){
-               if(arr.get(i)+absentsadded>15){
-                   arr.set(i,15);
+               if(arr.get(i)+absentsadded>maxAbsences){
+                   arr.set(i,maxAbsences);
                }
-               else if(arr.get(i)+absentsadded<0){
-                   arr.set(i,0);
+               else if(arr.get(i)+absentsadded<minAbsences){
+                   arr.set(i,minAbsences);
                }
-               else if((arr.get(i)+absentsadded>=0) && arr.get(i)+absentsadded<=15){
+               else if((arr.get(i)+absentsadded>=0) && arr.get(i)+absentsadded<=maxAbsences){
                    arr.set(i,arr.get(i)+absentsadded);
                }
             }
