@@ -17,11 +17,46 @@ public class Main {
         Collections.sort(attendanceRecord);
         attendanceRecord = absenceAdder(attendanceRecord,5,2);
         uniqueAbsenceRecords(attendanceRecord);
+        outputabsenceHist(absenceHistogramgenerator(attendanceRecord));
+        System.out.println(attendanceRecord);
+        System.out.println("Indices of students who FE'd: "+ getIndicesOfFE(attendanceRecord,requestCourseMeetCount()));
+
 
 
     }
-    public static HashMap<Integer,Integer> absenceHistogramgenerator(ArrayList<Integer> arr){
-        HashMap<Integer,Integer>attHist  = new HashMap<Integer, Integer>();
+    public static ArrayList<Integer> getIndicesOfFE(ArrayList<Integer> arr,int meetCnt){
+        ArrayList<Integer> FeIndices = new ArrayList<Integer>();
+        for (int i = 0; i < arr.size(); i++) {
+            if(arr.get(i)>=(meetCnt*2)){
+                FeIndices.add(i);
+            }
+
+        }
+        return  FeIndices;
+
+    }
+    public static int requestCourseMeetCount() {
+        System.out.println("Hoe many times a week does the class meet?");
+    int meetcount = keyb.nextInt();
+    return meetcount;
+    }
+    public  static  void outputabsenceHist(Map<Integer,Integer> hist){
+        for(Map.Entry<Integer, Integer> entry : hist.entrySet()) {
+            int key = entry.getKey();
+            int value = entry.getValue();
+            System.out.printf("\n %d ",key);
+            for (int i = 1; i <=value; i++) {
+                System.out.printf("*");
+
+            }
+
+        }
+
+        System.out.println("\n");
+        }
+
+    public static Map<Integer,Integer> absenceHistogramgenerator(ArrayList<Integer> arr){
+        Map<Integer,Integer>attHist  = new HashMap<Integer, Integer>();
         for (int i = 0; i < arr.size(); i++) {
             if(attHist.containsKey(arr.get(i))){
                attHist.put(arr.get(i),attHist.get(arr.get(i))+1);
