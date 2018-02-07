@@ -19,10 +19,28 @@ public class Main {
         uniqueAbsenceRecords(attendanceRecord);
         outputabsenceHist(absenceHistogramgenerator(attendanceRecord));
         System.out.println(attendanceRecord);
-        System.out.println("Indices of students who FE'd: "+ getIndicesOfFE(attendanceRecord,requestCourseMeetCount()));
+        ArrayList<Integer>FEarray = getIndicesOfFE(attendanceRecord,requestCourseMeetCount());
+        System.out.println("Indices of students who FE'd: "+ FEarray);
+        calcpercentFED(FEarray.size(),attendanceRecord.size());
+        Collections.shuffle(attendanceRecord);
 
 
+    }
 
+    //public static int getAvgFedStudents(){}
+
+    public static ArrayList<Integer> shuffleAbsences(ArrayList<Integer> arr){
+        Random rand = new Random();
+        for (int i = 0; i <arr.size() ; i++) {
+            arr.set(rand.nextInt(arr.size()),arr.get(i));
+
+        }
+        return arr;
+    }
+
+    public static double  calcpercentFED(int indxFESize, int attrecSize){
+       double prcnt = indxFESize/attrecSize;
+       return prcnt;
     }
     public static ArrayList<Integer> getIndicesOfFE(ArrayList<Integer> arr,int meetCnt){
         ArrayList<Integer> FeIndices = new ArrayList<Integer>();
@@ -36,7 +54,7 @@ public class Main {
 
     }
     public static int requestCourseMeetCount() {
-        System.out.println("Hoe many times a week does the class meet?");
+        System.out.println("How many times a week does the class meet?");
     int meetcount = keyb.nextInt();
     return meetcount;
     }
