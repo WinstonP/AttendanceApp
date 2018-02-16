@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
 
 
-        ArrayList<Integer> attendanceRecord = calcAbsences(welcomeInput());
+       /* ArrayList<Integer> attendanceRecord = calcAbsences(welcomeInput());
         System.out.println("Attendance Record: " + attendanceRecord);
         System.out.println("This many student(s) had perfect Attendance: " + calcPerfAttendance(attendanceRecord));
         System.out.printf("The average absent rate is: %.2f \n" , calcAverageAbsence(attendanceRecord));
@@ -24,9 +24,21 @@ public class Main {
         calcpercentFED(FEarray.size(),attendanceRecord.size());
         Collections.shuffle(attendanceRecord);
 
+*/
+       createNamesRecord();
+
+
 
     }
 
+    public static ArrayList<String> createNamesRecord(){
+        ArrayList<String> names = new ArrayList<String>();
+        for (int i = 0; i < 5 ; i++) {
+            System.out.println("Give me a name: ");
+            names.add(keyb.next());
+        }
+        return names;
+    }
     //public static int getAvgFedStudents(){}
 
     public static ArrayList<Integer> shuffleAbsences(ArrayList<Integer> arr){
